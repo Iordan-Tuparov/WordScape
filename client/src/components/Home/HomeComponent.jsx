@@ -1,7 +1,13 @@
+import './Home.css';
+
 function HomeComponent() {
     return (
-        <h1>Hello</h1>
+        <>
+            <div className='home-wrapper'>
+                <h1>Hello</h1>
+            </div>
+        </>
     )
 }
 
-export default HomeComponent
+export default HomeComponent;

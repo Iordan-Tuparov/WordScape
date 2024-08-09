@@ -1,0 +1,14 @@
+footer {
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    color: white;
+    padding: 9.3px;
+    background-color: #211f19;
+}
+
+footer ul {
+    display: flex;
+    padding-left: 15px;
+    gap: 8px;
+}

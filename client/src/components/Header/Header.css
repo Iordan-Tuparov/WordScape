@@ -1,0 +1,13 @@
+.ul-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 15px 20px 15px 20px;
+    background-color: #211f19;
+}
+
+ul li {
+    color: white;
+    list-style-type: none;
+}
