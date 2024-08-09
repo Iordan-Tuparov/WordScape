@@ -12,3 +12,8 @@ footer ul {
     padding-left: 15px;
     gap: 8px;
 }
+
+footer ul li a {
+    text-decoration: none;
+    color: white;
+}
