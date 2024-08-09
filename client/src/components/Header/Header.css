@@ -4,10 +4,25 @@
     flex-wrap: wrap;
     align-items: center;
     padding: 15px 20px 15px 20px;
-    background-color: #211f19;
+    background-color: #2C3E50;
 }
 
 ul li {
     color: white;
     list-style-type: none;
+}
+
+ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.logo-container svg {
+    padding-right: 3px;
+}
+
+ul.user-auth {
+ display: flex;
+ gap: 7px;
 }

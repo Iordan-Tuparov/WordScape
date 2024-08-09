@@ -1,20 +1,26 @@
 import './Header.css'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSlack } from "@fortawesome/free-brands-svg-icons"
+
 function HeaderComponent() {
     return (
         <>
             <div className="ul-container">
 
-                <ul>
-                    <li href="#">Logo</li>
+                <ul className="logo-container">
+                    <li><a href="#"><FontAwesomeIcon icon={faSlack}/>WordScape</a></li>
                 </ul>
 
                 <ul>
-                    <li href="#">Messages</li>
+                    <li><a href="#">Messages</a></li>
                 </ul>
 
-                <ul>
-                    <li href="#">Profile</li>
+                <ul className="user-auth">
+                    <li><a href="#">Profile</a></li>
+                    <li><a href="#">Login</a></li>
+                    <li><a href="#">Register</a></li>
+                    <li><a href="#">Logout</a></li>
                 </ul>
             </div>
         </>
