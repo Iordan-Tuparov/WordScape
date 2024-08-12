@@ -1,0 +1,52 @@
+.login-wrapper {
+    min-height: 85.1vh;
+    background-color: rgb(16, 16, 16);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding-top: 30px;
+}
+
+.login-info input {
+    width: 400px;
+    padding: 15px;
+    outline: none;
+    font-size: 20px;
+    margin-top: 10px;
+    background-color: rgb(30, 30, 30);
+    color: white;
+    border: 1px solid #333;
+    border-radius: 5px;
+}
+
+.login-info input:focus {
+    border: 1px solid rgb(119, 119, 119);
+}
+
+.login-info button {
+    width: 435px;
+    padding: 15px;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: white;
+    color: rgb(16, 16, 16);
+    cursor: pointer;
+}
+
+.login-info p {
+    align-self: center;
+}
+
+.login-info p a {
+    text-decoration: none;
+    color: white;
+}
