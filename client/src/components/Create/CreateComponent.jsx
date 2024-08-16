@@ -4,9 +4,8 @@ function CreateComponent() {
     return (
         <div className="create-wrapper">
             <div className="form-wrapper">
-                    <h3>Write some text</h3>
                 <form>
-                    <textarea name="text"></textarea>
+                    <textarea name="text" placeholder="Some text..."></textarea>
                     <button>Publish</button>
                 </form>
             </div>
