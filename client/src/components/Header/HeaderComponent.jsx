@@ -3,7 +3,7 @@ import "./Header.css";
 import { Link } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSlack } from "@fortawesome/free-brands-svg-icons";
+import { faCreativeCommons, faCreativeCommonsBy, faSlack } from "@fortawesome/free-brands-svg-icons";
 
 import { useContext } from "react";
 import { AuthContext } from "../../context/authContext";
@@ -23,6 +23,12 @@ function HeaderComponent() {
           </li>
         </ul>
 
+        <ul>
+          <li className="create-icon">
+            <Link to="/list-create">+</Link>
+          </li>
+        </ul>
+
         <ul className="user-auth">
           {isAuthenticated ? (
             <>
@@ -32,7 +38,6 @@ function HeaderComponent() {
               <li>
                 <Link to="/auth/profile">Profile</Link>
               </li>
-
               <li>
                 <a onClick={userLogout}>Logout</a>
               </li>

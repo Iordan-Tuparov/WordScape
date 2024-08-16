@@ -25,7 +25,11 @@ function RegisterComponent() {
     e.preventDefault();
 
     try {
-      const user = await register(values.username, values.password);
+      const user = await register(
+        values.username,
+        values.password,
+        values.repeatPassword
+      );
 
       userRegister(user);
       navigate("/");

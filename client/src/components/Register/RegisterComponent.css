@@ -54,9 +54,11 @@
 .register-error {
   position: fixed;
   top: 45%;
-  left: 84%;
+  left: 83%;
   padding: 10px;
   border: 2px solid white;
   color: red;
   font-weight: bold;
+  max-width: 250px;
+  text-align: center;
 }

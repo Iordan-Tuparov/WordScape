@@ -5,6 +5,12 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
     unique: true,
+    validate: {
+      validator: function (username) {
+        return /^[A-Za-z0-9]+$/.test(username);
+      },
+      message: "The username must be only upper,lower and numbers characters!"
+    },
   },
   Password: {
     type: String,

@@ -29,6 +29,7 @@
   padding: 5px 10px;
   display: inline-block;
   transition: all 0.3s ease;
+  cursor: pointer;
 }
 
 .ul-container ul li a:hover {
@@ -53,4 +54,9 @@ ul.user-auth {
   display: flex;
   flex-wrap: wrap;
   gap: 7px;
+}
+
+ul li.create-icon{
+  font-size: 30px;
+  font-weight: bold;
 }

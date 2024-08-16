@@ -12,6 +12,10 @@ export const AuthProvider = ({ children }) => {
     setAuth(user);
   };
 
+  const userLogin = (user) => {
+    setAuth(user);
+  };
+
   const userLogout = () => {
     setAuth({});
     localStorage.removeItem("auth");
@@ -23,6 +27,7 @@ export const AuthProvider = ({ children }) => {
       value={{
         user: auth,
         userRegister,
+        userLogin,
         userLogout,
         isAuthenticated: !!auth.accessToken,
       }}
