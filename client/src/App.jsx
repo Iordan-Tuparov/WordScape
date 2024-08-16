@@ -9,6 +9,7 @@ import HomeComponent from "./components/Home/HomeComponent";
 import LoginComponent from "./components/Login/LoginComponent";
 import RegisterComponent from "./components/Register/RegisterComponent";
 import ProfileComponent from "./components/Profile/ProfileComponent";
+import CreateComponent from "./components/Create/CreateComponent";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/auth/login" element={<LoginComponent />} />
           <Route path="/auth/register" element={<RegisterComponent />} />
           <Route path="/auth/profile" element={<ProfileComponent />} />
+          <Route path="/list-create" element={<CreateComponent />} />
         </Routes>
 
         <FooterComponent />

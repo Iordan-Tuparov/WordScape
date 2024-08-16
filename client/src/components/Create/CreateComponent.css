@@ -1,0 +1,41 @@
+.create-wrapper {
+  min-height: 85.1vh;
+  background-color: rgb(16, 16, 16);
+  color: white;
+}
+
+.form-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 500px;
+}
+
+.form-wrapper h3 {
+  margin-bottom: 15px;
+  text-decoration: underline;
+}
+
+.form-wrapper form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.form-wrapper form button {
+  padding: 5px 15px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.form-wrapper form textarea {
+  max-width: 40em;
+  min-width: 40em;
+  margin-bottom: 15px;
+  max-height: 20em;
+  min-height: 10em;
+  font-size: 19px;
+  border: none;
+}
