@@ -2,6 +2,7 @@ import "./App.css";
 
 import { Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./context/authContext";
+import { ListProvider } from "./context/listContext";
 
 import FooterComponent from "./components/Footer/FooterComponent";
 import HeaderComponent from "./components/Header/HeaderComponent";
@@ -17,13 +18,15 @@ function App() {
       <main>
         <HeaderComponent />
 
-        <Routes>
-          <Route path="/" element={<HomeComponent />} />
-          <Route path="/auth/login" element={<LoginComponent />} />
-          <Route path="/auth/register" element={<RegisterComponent />} />
-          <Route path="/auth/profile" element={<ProfileComponent />} />
-          <Route path="/list-create" element={<CreateComponent />} />
-        </Routes>
+        <ListProvider>
+          <Routes>
+            <Route path="/" element={<HomeComponent />} />
+            <Route path="/auth/login" element={<LoginComponent />} />
+            <Route path="/auth/register" element={<RegisterComponent />} />
+            <Route path="/auth/profile" element={<ProfileComponent />} />
+            <Route path="/list-create" element={<CreateComponent />} />
+          </Routes>
+        </ListProvider>
 
         <FooterComponent />
       </main>

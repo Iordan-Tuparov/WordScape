@@ -1,88 +1,42 @@
-import './Home.css';
+import "./Home.css";
+
+import { useEffect, useState } from "react";
+
+import { lists } from "../../services/listService";
+import ListItemComponent from "./ListItemComponent";
 
 function HomeComponent() {
-    return (
-        <>
-            <div className='home-wrapper'>
-                <div className='card-wrapper'>
-                    <div className="card">
-                        <div className='photo'>
-                            <img src="photo.jpg" alt="photo" />
-                        </div>
-                        <div className='user-information'>
-                            <h3 className='username'>Username</h3>
-                            <p className='text'>Some text</p>
-                            <div className='buttons-wrapper'>
-                                <button>Like</button>
-                                <button>Dislike</button>
-                                <button>Comment</button>
-                            </div>
-                        </div>
-                    </div>
+  const [allLists, setAllLists] = useState([{}]);
 
-                    <div className="card">
-                        <div className='photo'>
-                            <img src="photo.jpg" alt="photo" />
-                        </div>
-                        <div className='user-information'>
-                            <h3 className='username'>Username</h3>
-                            <p className='text'>Some text</p>
-                            <div className='buttons-wrapper'>
-                                <button>Like</button>
-                                <button>Dislike</button>
-                                <button>Comment</button>
-                            </div>
-                        </div>
-                    </div>
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const result = await lists();
 
-                    <div className="card">
-                        <div className='photo'>
-                            <img src="photo.jpg" alt="photo" />
-                        </div>
-                        <div className='user-information'>
-                            <h3 className='username'>Username</h3>
-                            <p className='text'>Some text</p>
-                            <div className='buttons-wrapper'>
-                                <button>Like</button>
-                                <button>Dislike</button>
-                                <button>Comment</button>
-                            </div>
-                        </div>
-                    </div>
+        setAllLists(result);
+      } catch (error) {
+        console.error("Error fetching data:", error.message);
+      }
+    };
 
-                    <div className="card">
-                        <div className='photo'>
-                            <img src="photo.jpg" alt="photo" />
-                        </div>
-                        <div className='user-information'>
-                            <h3 className='username'>Username</h3>
-                            <p className='text'>Some text</p>
-                            <div className='buttons-wrapper'>
-                                <button>Like</button>
-                                <button>Dislike</button>
-                                <button>Comment</button>
-                            </div>
-                        </div>
-                    </div>
+    fetchData();
+  }, []);
 
-                    <div className="card">
-                        <div className='photo'>
-                            <img src="photo.jpg" alt="photo" />
-                        </div>
-                        <div className='user-information'>
-                            <h3 className='username'>Username</h3>
-                            <p className='text'>Some text</p>
-                            <div className='buttons-wrapper'>
-                                <button>Like</button>
-                                <button>Dislike</button>
-                                <button>Comment</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </>
-    )
+  return (
+    <>
+      <div className="home-wrapper">
+        <div className="card-wrapper">
+          {allLists.length === 0 ? (
+            <h1>Do not have allready listed items!</h1>
+          ) : (
+            allLists.map((item, index) => (
+              <ListItemComponent key={index} item={item} />
+            ))
+          )}
+        </div>
+      </div>
+    </>
+  );
 }
 
 export default HomeComponent;

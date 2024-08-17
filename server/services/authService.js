@@ -45,7 +45,7 @@ exports.createToken = (user) => {
     jwt.sign(
       {
         _id: user._id,
-        username: user.username,
+        Username: user.Username,
       },
       SECRET,
       { expiresIn: "2d" },
