@@ -1,12 +1,14 @@
 import "./Home.css";
 
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../context/authContext";
 
 import { lists } from "../../services/listService";
 import ListItemComponent from "./ListItemComponent";
 
 function HomeComponent() {
   const [allLists, setAllLists] = useState([{}]);
+  const { user } = useContext(AuthContext);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -30,7 +32,7 @@ function HomeComponent() {
             <h1>Do not have allready listed items!</h1>
           ) : (
             allLists.map((item, index) => (
-              <ListItemComponent key={index} item={item} />
+              <ListItemComponent key={index} item={item} user={user}/>
             ))
           )}
         </div>

@@ -30,8 +30,13 @@ function RegisterComponent() {
     formData.set("username", values.username);
     formData.set("password", values.password);
     formData.set("repeatPassword", values.repeatPassword);
-    formData.set("userPath", fileInput.current.value);
 
+    if (!fileInput.current.files[0]) {
+      throw {
+        message: "Please select a avatar!",
+      }
+    }
+    
     try {
       const user = await register(formData);
 
@@ -54,7 +59,7 @@ function RegisterComponent() {
           onChange={onSetValueHandler}
           placeholder="Username"
         />
-        <input type="file" name="image" ref={fileInput} />
+        <input type="file" name="image" ref={fileInput} placeholder="Avatar" />
         <input
           type="password"
           name="password"
