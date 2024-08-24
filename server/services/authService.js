@@ -4,7 +4,7 @@ const { SALT, SECRET } = require("../config/env");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
-exports.register = async (username, password) => {
+exports.register = async (username, password,userPath) => {
   const trimedUsername = username.trim();
   const trimedPassword = password.trim();
 
@@ -13,6 +13,7 @@ exports.register = async (username, password) => {
   const createdUser = User.create({
     Username: trimedUsername,
     Password: hashedPassword,
+    userPath
   });
 
   if (!createdUser) {

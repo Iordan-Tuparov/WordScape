@@ -11,7 +11,7 @@ router.get("/getAllLists", async (req, res) => {
 
 router.post("/create", auth, async (req, res) => {
   try {
-    const listData = { ...req.body, _owner: req.user._id, creator: req.user.username };
+    const listData = { ...req.body, _owner: req.user._id, creator: req.user.Username };
 
     const createdList = await listService.create(listData);
 

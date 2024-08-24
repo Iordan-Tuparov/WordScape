@@ -1,5 +1,7 @@
-export const register = async (username, password, repeatPassword) => {
-  const userData = { username, password };
+export const register = async (formData) => {
+  const username = formData.get("username");
+  const password = formData.get("password");
+  const repeatPassword = formData.get("repeatPassword");
 
   if (!username || !password) {
     throw {
@@ -15,10 +17,7 @@ export const register = async (username, password, repeatPassword) => {
 
   const response = await fetch("http://localhost:3000/auth/register", {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(userData),
+    body: formData,
   });
 
   if (response.status === 400) {
@@ -57,12 +56,12 @@ export const login = async (username, password) => {
     body: JSON.stringify({ username, password }),
   });
 
-  if(response.status === 400) {
+  if (response.status === 400) {
     const errorMessage = await response.json();
 
-    throw{
-      message: errorMessage.message
-    }
+    throw {
+      message: errorMessage.message,
+    };
   }
 
   return response.json();

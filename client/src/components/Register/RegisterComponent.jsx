@@ -1,6 +1,6 @@
 import "./RegisterComponent.css";
 
-import { useState, useContext } from "react";
+import { useState, useContext, createRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import { register } from "../../services/authService";
@@ -12,6 +12,7 @@ function RegisterComponent() {
     password: "",
     repeatPassword: "",
   });
+  const fileInput = createRef();
   const [error, setError] = useState("");
 
   const onSetValueHandler = (e) => {
@@ -24,12 +25,15 @@ function RegisterComponent() {
   const onRegister = async (e) => {
     e.preventDefault();
 
+    const formData = new FormData();
+    formData.set("avatar", fileInput.current.files[0]);
+    formData.set("username", values.username);
+    formData.set("password", values.password);
+    formData.set("repeatPassword", values.repeatPassword);
+    formData.set("userPath", fileInput.current.value);
+
     try {
-      const user = await register(
-        values.username,
-        values.password,
-        values.repeatPassword
-      );
+      const user = await register(formData);
 
       userRegister(user);
       navigate("/");
@@ -50,6 +54,7 @@ function RegisterComponent() {
           onChange={onSetValueHandler}
           placeholder="Username"
         />
+        <input type="file" name="image" ref={fileInput} />
         <input
           type="password"
           name="password"
