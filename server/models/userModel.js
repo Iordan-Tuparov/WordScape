@@ -12,6 +12,10 @@ const userSchema = new mongoose.Schema({
       message: "The username must be only upper,lower and numbers characters!",
     },
   },
+  avatarName: {
+    type: String,
+    required: true,
+  },
   Password: {
     type: String,
     required: true,

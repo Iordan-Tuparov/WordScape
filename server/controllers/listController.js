@@ -11,7 +11,11 @@ router.get("/getAllLists", async (req, res) => {
 
 router.post("/create", auth, async (req, res) => {
   try {
-    const listData = { ...req.body, _owner: req.user._id, creator: req.user.Username };
+    const listData = {
+      ...req.body,
+      _owner: req.user._id,
+      creator: req.user.Username,
+    };
 
     const createdList = await listService.create(listData);
 
@@ -20,5 +24,13 @@ router.post("/create", auth, async (req, res) => {
     res.status(400).json({ message: error.message });
   }
 });
+
+// router.post("/like", async (req, res) => {
+//   const { userId, listId } = req.body;
+
+//   const currentLikes = await listService.likeCurrentList(userId, listId);
+
+//   res.status(200).json({ likes: currentLikes.likes.length });
+// });
 
 module.exports = router;

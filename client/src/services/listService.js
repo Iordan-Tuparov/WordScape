@@ -10,7 +10,7 @@ export const createList = async (text) => {
   const response = await fetch("http://localhost:3000/list/create", {
     method: "POST",
     headers: {
-      "Authorization": JSON.parse(auth).accessToken,
+      Authorization: JSON.parse(auth).accessToken,
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ text }),
@@ -26,7 +26,22 @@ export const createList = async (text) => {
 };
 
 export const lists = async () => {
-  const response = await fetch('http://localhost:3000/list/getAllLists')
+  const response = await fetch("http://localhost:3000/list/getAllLists");
 
   return response.json();
-}
+};
+
+// export const likeList = async (userId, listId) => {
+//   const data = { userId, listId };
+
+//   const response = await fetch("http://localhost:3000/list/like", {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//     body: JSON.stringify(data),
+//   });
+
+//   return response.json();
+// };
+
